@@ -1,0 +1,84 @@
+body {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	min-width: 100vw;
+	background: #ffffff;
+
+  }
+  
+  .counter {
+	pointer-events: none;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	&.baseColor-primary {
+	  background-color: rgba(47, 182, 117, 1);
+	  color: #fff;
+
+	}
+  
+	&.baseColor-secondary {
+	  background-color: rgba(131, 102, 86, 0.2);
+	  color: #000
+	}
+
+	font-weight: bold;
+	text-align: center;
+	
+	&.size-8 {
+	  font-size: 8px;
+	  width: 8px;
+	  height: 8px;
+	}
+  
+	&.size-12 {
+	  font-size: 12px;
+	  width: 12px;
+	  height: 12px;
+	}
+  
+	&.size-16 {
+	  font-size: 11px;
+	  width: 16px;
+	  height: 16px;
+	}
+  
+	&.size-20 {
+	  font-size: 13px;
+	  width: 20px;
+	  height: 20px;	
+	}
+  
+	&.size-24 {
+	  font-size: 15px;
+	  width: 24px;
+	  height: 24px;
+	 }
+  
+	 &.pulse {
+	   .pulse {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		border-radius:50%;
+		animation-name:red-dot-scale-fade; 
+		animation-iteration-count: infinite; 
+		animation-duration:2s;
+		background-color: inherit; 
+	   }
+  
+	   .pulse.two {
+		 animation-delay:.25s; 
+	   }
+	 }
+  }
+  
+  @keyframes red-dot-scale-fade {
+		0% { opacity:1; transform:scale(1); }
+		50% { opacity:.0; transform:scale(3); }
+		100% { opacity:.0; transform:scale(3); }
+  }
+  
