@@ -74,10 +74,16 @@ export const Counter: React.FC<ICount> = ({
 
   const dimensions = getDimensions();
 
-
+  const counterStyle = [
+    `counter`,
+    showAnimate ? 'pulse' : '',
+    `size-${size}`,
+    `baseColor-${baseColor}`
+  ].join(' ')
+  
   return (
     <div
-      className={`counter ${showAnimate ? 'pulse' : ''} size-${size} baseColor-${baseColor}`}
+      className={counterStyle}
       style={{ 
         borderColor: style,
         borderWidth: stroke ? getStroke() : 0,
