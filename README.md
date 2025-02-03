@@ -1,50 +1,113 @@
-# React + TypeScript + Vite
+# Описание проекта
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+В рамках выполнения тестового задания были разработаны два компонента: **Counter** и **Button**, каждый из которых поддерживает различные состояния и предоставляет гибкие возможности для настройки.
 
-Currently, two official plugins are available:
+## **Компоненты**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **Counter**
 
-## Expanding the ESLint configuration
+Компонент **Counter** используется для отображения числового значения с возможностью анимации и задания различных стилей.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### **Свойства**
+- `size`: Размер компонента (8, 12, 16, 20, 24).
+- `style`: Цветовая схема границы.
+- `quantity`: Отображаемое значение (число или строка).
+- `pulse`: Включение анимации пульсации.
+- `baseColor`: Основной цвет компонента (`primary` или `secondary`).
+- `stroke`: Включение рамки вокруг счетчика.
 
-- Configure the top-level `parserOptions` property like this:
+## **Логика работы**
+- Значение не отображается, если размер равен `8` или `12`.
+- Числовые значения ограничены до `99+`, а строки сокращаются до трёх символов.
+- Анимация активируется, если включён параметр `pulse` и размер равен `8` или `12`.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## **Button**
+
+Компонент **Button** представляет собой интерактивную кнопку с различными состояниями и поддержкой отображения счетчика.
+
+## **Свойства**
+- `style`: Стиль кнопки (`primary` или `secondary`).
+- `size`: Размер кнопки (28, 36, 56).
+- `state`: Состояние кнопки (`enabled`, `pressed`, `loading`, `disabled`).
+- `counter`: Отображение счетчика рядом с кнопкой.
+- `focused`: Установка состояния фокуса.
+- `onClick`: Обработчик клика.
+
+## **Логика работы**
+- Кнопка не реагирует на клики, если её состояние равно `loading` или `disabled`.
+- Поддерживается отображение лоадера в состоянии загрузки.
+- Счётчик отображается рядом с кнопкой, если параметр `counter` равен `true`.
+
+---
+
+# **Сторибук**
+Для визуального тестирования компонентов был создан Storybook, который позволяет легко переключаться между различными состояниями и параметрами компонентов.
+
+## **Запуск:**
+
+```bash
+npm run storybook
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+# **Тестирование**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Для тестирования использовались **React Testing Library** и **Jest**.
+
+Примеры тестов:
+- Проверка отображения значения компонента Counter.
+- Проверка ограничений для числовых и текстовых значений.
+- Проверка отображения состояния загрузки и взаимодействий кнопки.
+
+**Запуск тестов:**
+```bash
+npm run test
 ```
+
+
+---
+
+## **Используемые технологии**
+- **React**: Создание пользовательских интерфейсов.
+- **TypeScript**: Обеспечение типизации и улучшенной разработки.
+- **SCSS**: Стилизация компонентов.
+- **Storybook**: Визуальное тестирование компонентов.
+- **Jest** и **React Testing Library**: Тестирование компонентов.
+- **Vite**: Быстрая сборка проекта.
+
+---
+
+## Запуск проекта
+
+1. Установите зависимости:
+   ```bash
+   npm install
+   ```
+
+2. Запустите проект в режиме разработки:
+   ```bash
+   npm run dev
+   ```
+
+3. Запуск тестов:
+   ```bash
+   npm run test
+   ```
+
+4. Запуск Storybook:
+   ```bash
+   npm run storybook
+   ```
+
+---
+
+## **Заключение**
+
+Проект продемонстрировал разработку качественных UI-компонентов с гибкими настройками и поддержкой тестирования и документации.
+
+
+
+
