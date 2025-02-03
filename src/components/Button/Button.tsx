@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Counter } from "../Counter/Counter";
 import './Button.scss'
 
@@ -15,30 +16,55 @@ interface IButton {
 }
 
 export const Button: React.FC<IButton> = ({
-	style = 'secondary',
+	style = 'primary',
 	size = 36,
 	state = 'enabled',
 	counter = false,
-	focused = false,
+	focused = true,
 	onClick,
 	children,
 }) => {
+	const [isFocused, setIsFocused] = useState(focused);
+	const [currentState, setCurrentState] = useState(state);
 
 	const buttonStyle = [
 		'btn-base',
 		`btn-${style}`,
 		`btn-size-${size}`,
-		`btn-state-${state}`,
-		focused ? 'btn-focused' : ''
+		`btn-state-${currentState}`,
+		(focused || isFocused) ? 'btn-focused' : '',
 	].join(' ')
 
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		if (currentState === 'loading' || currentState === 'disabled') {
+		  event.preventDefault();
+		  return; 
+		}
+		setCurrentState('loading')
+		if(onClick) {
+			onClick(); 
+			
+		}
+	  };
+	  
+	  const handleFocus = () => {
+		setIsFocused(true);
+	  };
+	
+	  const handleBlur = () => {
+		setIsFocused(false);
+	  };
+	
 	return (
 		<button 
 			className={buttonStyle}
-			onClick={onClick}
+			onClick={handleClick}
+			onFocus={handleFocus}
+			onBlur={handleBlur}
 			tabIndex={state == 'loading' ? -1 : 0}
-			disabled={ state === 'disabled'}>
-			{state === 'loading' ? (
+			disabled={ state === 'disabled'}
+			>
+			{currentState === 'loading' ? (
           		<div className="loading-spinner"></div> 
         	) : (
           		<>

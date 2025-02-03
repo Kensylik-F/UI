@@ -79,3 +79,14 @@ export const SecondaryLoading: Story = {
 		children: 'Что сделать'
 	}
 }
+
+export const FocusedButton: Story = {
+	args:{
+		style: 'primary',
+		focused: true,
+		size: 28,
+		state: 'loading',
+		counter: true,
+		children: 'Что сделать'
+	}
+}
