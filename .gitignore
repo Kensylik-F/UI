@@ -24,4 +24,7 @@ dist-ssr
 *.sw?
 ./vite-env.d.ts
 ./vite.config.ts
+jest.config.js
 *storybook.log
+.babelrc
+.storybook

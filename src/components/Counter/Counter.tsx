@@ -85,7 +85,6 @@ export const Counter: React.FC<ICount> = ({
     `size-${size}`,
     `baseColor-${baseColor}`
   ].join(' ')
-  
   return (
     <div
       className={counterStyle}
@@ -95,12 +94,13 @@ export const Counter: React.FC<ICount> = ({
         width: dimensions.width,
         height: dimensions.height,
         boxSizing: 'border-box',
-        padding: getPadding(),        
+        padding: getPadding(),    
+        fontSize: `${size}px`    
       }}
     > 
       {showAnimate ? (
         <>
-          <div className="red-dot"></div>
+          <div className="red-dot" ></div>
           <div className="pulse one"></div>
           <div className="pulse two"></div>
         </>
