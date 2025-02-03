@@ -1,19 +1,14 @@
-body {
-	display: grid;
-	place-items: center;
-	min-height: 100vh;
-	min-width: 100vw;
-	background: #ffffff;
 
-  }
-  
-  .counter {
+.counter {
 	pointer-events: none;
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
+	user-select: none;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
 	&.baseColor-primary {
 	  background-color: rgba(47, 182, 117, 1);
 	  color: #fff;
@@ -74,11 +69,11 @@ body {
 		 animation-delay:.25s; 
 	   }
 	 }
-  }
+}
   
-  @keyframes red-dot-scale-fade {
-		0% { opacity:1; transform:scale(1); }
-		50% { opacity:.0; transform:scale(3); }
-		100% { opacity:.0; transform:scale(3); }
-  }
+@keyframes red-dot-scale-fade {
+	0% { opacity:1; transform:scale(1); }
+	50% { opacity:.0; transform:scale(3); }
+	100% { opacity:.0; transform:scale(3); }
+}
   

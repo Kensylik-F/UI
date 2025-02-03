@@ -17,7 +17,7 @@ interface IButton {
 export const Button: React.FC<IButton> = ({
 	style = 'secondary',
 	size = 36,
-	state = 'loading',
+	state = 'enabled',
 	counter = false,
 	focused = false,
 	onClick,
@@ -36,7 +36,7 @@ export const Button: React.FC<IButton> = ({
 		<button 
 			className={buttonStyle}
 			onClick={onClick}
-			tabIndex={state === 'loading' ? -1 : 0}
+			tabIndex={state == 'loading' ? -1 : 0}
 			disabled={ state === 'disabled'}>
 			{state === 'loading' ? (
           		<div className="loading-spinner"></div> 

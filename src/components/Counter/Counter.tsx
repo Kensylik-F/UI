@@ -18,10 +18,15 @@ export const Counter: React.FC<ICount> = ({
     stroke,
 }) => {
   const getValue = () => {
-    if (typeof quantity === 'number') {
-      return quantity > 99 ? '99+' : quantity;
-    } else {
-      return quantity.length > 3 ? quantity.substring(0, 3) : quantity;
+    if(size == 8 || size == 12){
+      return ''
+    }else{
+      if (typeof quantity === 'number') {
+        return quantity > 99 ? '99+' : quantity;
+      } else {
+        return quantity.length > 3 ? quantity.substring(0, 3) : quantity;
+      }
+
     }
   };
 
